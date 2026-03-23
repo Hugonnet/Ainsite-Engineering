@@ -12,13 +12,14 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-zinc-200 bg-white/80 backdrop-blur-lg dark:border-zinc-800 dark:bg-zinc-950/80">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-violet-600 to-indigo-600 text-white shadow-lg transition-transform group-hover:scale-105">
+          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-r from-blue-500 to-rose-400 text-white shadow-md transition-transform group-hover:scale-105">
             <Sparkles className="h-5 w-5" />
           </div>
-          <span className="text-xl font-bold bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">
+          <span className="text-xl font-bold bg-gradient-to-r from-blue-500 to-rose-400 bg-clip-text text-transparent">
             Ainsite Engineering
           </span>
         </Link>
+
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
@@ -46,7 +47,7 @@ export function Header() {
           <Button variant="ghost" size="sm">
             Se connecter
           </Button>
-          <Button size="sm" className="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white border-0">
+          <Button size="sm" className="bg-gradient-to-r from-blue-500 to-rose-400 hover:from-blue-600 hover:to-rose-500 text-white border-0 shadow-md">
             Essai gratuit
           </Button>
         </div>
@@ -86,7 +87,7 @@ export function Header() {
               <Button variant="ghost" size="sm" className="w-full justify-center">
                 Se connecter
               </Button>
-              <Button size="sm" className="w-full justify-center bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white border-0">
+              <Button size="sm" className="w-full justify-center bg-gradient-to-r from-blue-500 to-rose-400 hover:from-blue-600 hover:to-rose-500 text-white border-0 shadow-md">
                 Essai gratuit
               </Button>
             </div>

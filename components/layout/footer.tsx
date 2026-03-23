@@ -8,13 +8,14 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-violet-600 to-indigo-600 text-white">
+              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-r from-blue-500 to-rose-400 text-white shadow-md">
                 <Sparkles className="h-5 w-5" />
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">
+              <span className="text-xl font-bold bg-gradient-to-r from-blue-500 to-rose-400 bg-clip-text text-transparent">
                 Ainsite Engineering
               </span>
             </Link>
+
             <p className="text-sm text-zinc-600 dark:text-zinc-400 max-w-md">
               Générez des prompts optimisés pour l'IA en quelques clics.
               L'outil indispensable pour les créateurs, développeurs et agences web.

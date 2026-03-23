@@ -1,15 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #0a0a0a;
+  --background: #f9fafb;
+  --foreground: #374151;
+  --primary-start: #3b82f6;
+  --primary-end: #fb7185;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --color-primary-start: var(--primary-start);
+  --color-primary-end: var(--primary-end);
+  --font-sans: "Inter", var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --radius-xl: 12px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,6 +27,9 @@
 body {
   background: var(--background);
   color: var(--foreground);
+  /* Added radial glow effect like the source app */
+  background-image: radial-gradient(circle at center, rgba(59, 130, 246, 0.03) 0%, transparent 70%);
+  background-attachment: fixed;
 }
 
 /* Custom scrollbar */
@@ -35,12 +43,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #d1d5db;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #666;
+  background: #9ca3af;
 }
 
 /* Smooth transitions */
@@ -50,19 +58,23 @@ body {
 
 /* Focus styles */
 *:focus-visible {
-  outline: 2px solid #8b5cf6;
+  outline: 2px solid var(--primary-start);
   outline-offset: 2px;
 }
 
 /* Selection */
 ::selection {
-  background-color: #8b5cf640;
+  background-color: rgba(59, 130, 246, 0.2);
 }
 
 /* Gradient text utility */
 .gradient-text {
-  background: linear-gradient(135deg, #8b5cf6, #6366f1);
+  background: linear-gradient(to right, var(--primary-start), var(--primary-end));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.bg-brand-gradient {
+  background: linear-gradient(to right, var(--primary-start), var(--primary-end));
 }

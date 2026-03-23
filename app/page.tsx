@@ -10,7 +10,7 @@ export default function HomePage() {
       <FeaturesSection />
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-violet-600 to-indigo-700 text-white">
+      <section className="py-20 bg-gradient-to-r from-blue-500 to-rose-400 text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
             Prêt à créer des prompts performants ?
@@ -21,12 +21,13 @@ export default function HomePage() {
           </p>
           <a
             href="/generate"
-            className="inline-flex items-center justify-center rounded-lg bg-white text-violet-600 px-8 py-3 text-lg font-semibold hover:bg-white/90 transition-colors"
+            className="inline-flex items-center justify-center rounded-xl bg-white text-blue-500 px-8 py-3 text-lg font-semibold hover:bg-white/90 transition-all shadow-lg hover:shadow-xl"
           >
             Commencer gratuitement
           </a>
         </div>
       </section>
+
     </>
   );
 }

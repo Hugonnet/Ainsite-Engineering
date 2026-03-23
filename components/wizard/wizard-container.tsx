@@ -43,21 +43,22 @@ export function WizardContainer({
                 key={label}
                 className={cn(
                   "flex flex-col items-center",
-                  index <= currentStep ? "text-violet-600" : "text-zinc-400"
+                  index <= currentStep ? "text-blue-600" : "text-zinc-400"
                 )}
               >
                 <div
                   className={cn(
-                    "w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium transition-colors",
+                    "w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium transition-colors shadow-sm",
                     index < currentStep
-                      ? "bg-violet-600 text-white"
+                      ? "bg-blue-600 text-white"
                       : index === currentStep
-                      ? "bg-violet-600 text-white ring-4 ring-violet-100"
+                      ? "bg-blue-600 text-white ring-4 ring-blue-50"
                       : "bg-zinc-200 dark:bg-zinc-700 text-zinc-500"
                   )}
                 >
                   {index < currentStep ? "✓" : index + 1}
                 </div>
+
                 <span className="text-xs mt-1 hidden sm:block">{label}</span>
               </div>
             ))

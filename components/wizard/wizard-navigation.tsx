@@ -44,8 +44,9 @@ export function WizardNavigation({
         <Button
           onClick={onSubmit}
           disabled={!canGoNext || isSubmitting}
-          className="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white gap-2"
+          className="bg-gradient-to-r from-blue-500 to-rose-400 hover:from-blue-600 hover:to-rose-500 text-white gap-2 shadow-md shadow-blue-500/20"
         >
+
           {isSubmitting ? (
             <>
               <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
