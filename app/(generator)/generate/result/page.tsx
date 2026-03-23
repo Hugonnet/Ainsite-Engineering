@@ -16,14 +16,22 @@ import {
   RefreshCw,
   Sparkles,
   Settings2,
+  Zap,
+  Expand,
+  Wand2,
 } from "lucide-react";
+
+type ImproveAction = 'improve' | 'simplify' | 'expand' | 'optimize';
 
 export default function ResultPage() {
   const router = useRouter();
-  const { currentPrompt, updatePromptBlock } = usePromptStore();
+  const { currentPrompt, updatePromptBlock, setGeneratedPrompt } = usePromptStore();
 
   const [copied, setCopied] = useState(false);
   const [activeTab, setActiveTab] = useState<"preview" | "edit">("preview");
+  const [isImproving, setIsImproving] = useState(false);
+  const [improveAction, setImproveAction] = useState<ImproveAction | null>(null);
+  const [showImproveOptions, setShowImproveOptions] = useState(false);
 
   if (!currentPrompt) {
     return (
@@ -57,6 +65,79 @@ export default function ResultPage() {
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
   };
+
+  const handleImprove = async (action: ImproveAction) => {
+    if (!currentPrompt) return;
+
+    setIsImproving(true);
+    setImproveAction(action);
+    setShowImproveOptions(false);
+
+    try {
+      const response = await fetch('/api/improve', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          prompt: currentPrompt.rawContent,
+          action,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.improved) {
+        // Met à jour le prompt avec la version améliorée
+        const updatedBlocks = currentPrompt.blocks.map((block, index) => ({
+          ...block,
+          content: extractBlockContent(data.improved, block.type) || block.content,
+        }));
+
+        setGeneratedPrompt({
+          ...currentPrompt,
+          blocks: updatedBlocks,
+          rawContent: data.improved,
+        });
+      }
+    } catch (error) {
+      console.error('Erreur amélioration:', error);
+    } finally {
+      setIsImproving(false);
+      setImproveAction(null);
+    }
+  };
+
+  const extractBlockContent = (content: string, blockType: string): string | null => {
+    const regex = new RegExp(`\\[${blockType.toUpperCase()}\\]\\n([\\s\\S]*?)(?=\\n\\[|$)`, 'i');
+    const match = content.match(regex);
+    return match ? match[1].trim() : null;
+  };
+
+  const improveOptions = [
+    {
+      action: 'improve' as ImproveAction,
+      label: 'Améliorer',
+      description: 'Ajoute des détails et clarifie les instructions',
+      icon: Sparkles,
+    },
+    {
+      action: 'simplify' as ImproveAction,
+      label: 'Simplifier',
+      description: 'Rend le prompt plus concis',
+      icon: RefreshCw,
+    },
+    {
+      action: 'expand' as ImproveAction,
+      label: 'Étendre',
+      description: 'Enrichit avec plus de contexte',
+      icon: Expand,
+    },
+    {
+      action: 'optimize' as ImproveAction,
+      label: 'Optimiser',
+      description: 'Structure pour les LLM',
+      icon: Zap,
+    },
+  ];
 
   const qualityScore = calculateAdvancedScore(currentPrompt.blocks, currentPrompt.type);
   const suggestions = getContextualSuggestions(currentPrompt.blocks, currentPrompt.type);
@@ -139,24 +220,62 @@ export default function ResultPage() {
           {/* Action Buttons */}
           <Card className="bg-gradient-to-r from-violet-50 to-indigo-50 dark:from-violet-950/30 dark:to-indigo-950/30">
             <CardContent className="py-6">
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between mb-4">
                 <div>
                   <h3 className="font-semibold mb-1">Améliorer ce prompt</h3>
                   <p className="text-sm text-zinc-600 dark:text-zinc-400">
                     Utilisez l'IA pour optimiser ou adapter votre prompt
                   </p>
                 </div>
-                <div className="flex gap-2">
-                  <Button variant="outline" size="sm">
-                    <RefreshCw className="h-4 w-4 mr-2" />
-                    Simplifier
-                  </Button>
-                  <Button size="sm" className="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700">
-                    <Sparkles className="h-4 w-4 mr-2" />
-                    Améliorer
-                  </Button>
-                </div>
+                <Button
+                  size="sm"
+                  className="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700"
+                  onClick={() => setShowImproveOptions(!showImproveOptions)}
+                >
+                  <Wand2 className="h-4 w-4 mr-2" />
+                  Options
+                </Button>
               </div>
+
+              {showImproveOptions && (
+                <div className="grid grid-cols-2 gap-3 mt-4">
+                  {improveOptions.map((option) => {
+                    const Icon = option.icon;
+                    return (
+                      <Button
+                        key={option.action}
+                        variant="outline"
+                        size="sm"
+                        className="h-auto py-3 flex flex-col items-start"
+                        onClick={() => handleImprove(option.action)}
+                        disabled={isImproving}
+                      >
+                        <div className="flex items-center gap-2 mb-1">
+                          <Icon className="h-4 w-4" />
+                          <span className="font-medium">{option.label}</span>
+                        </div>
+                        <span className="text-xs text-zinc-500 text-left">
+                          {option.description}
+                        </span>
+                      </Button>
+                    );
+                  })}
+                </div>
+              )}
+
+              {isImproving && (
+                <div className="mt-4 flex items-center gap-2 text-violet-600">
+                  <div className="animate-spin">
+                    <RefreshCw className="h-4 w-4" />
+                  </div>
+                  <span className="text-sm">
+                    {improveAction === 'improve' && 'Amélioration en cours...'}
+                    {improveAction === 'simplify' && 'Simplification en cours...'}
+                    {improveAction === 'expand' && 'Extension en cours...'}
+                    {improveAction === 'optimize' && 'Optimisation en cours...'}
+                  </span>
+                </div>
+              )}
             </CardContent>
           </Card>
         </div>

@@ -105,7 +105,7 @@ export function analyzeCompleteness(
   missing: string[];
 } {
   const presentTypes = new Set(blocks.filter((b) => b.content.trim().length > 0).map((b) => b.type));
-  const missing = requiredTypes.filter((t) => !presentTypes.has(t));
+  const missing = requiredTypes.filter((t) => !presentTypes.has(t as PromptBlock['type']));
 
   const score = Math.round(((requiredTypes.length - missing.length) / requiredTypes.length) * 100);
 
