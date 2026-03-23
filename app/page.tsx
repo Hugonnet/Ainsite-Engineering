@@ -16,7 +16,7 @@ export default function HomePage() {
             Prêt à créer des prompts performants ?
           </h2>
           <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
-            Rejoignez des milliers de créateurs et développeurs qui utilisent PromptForge
+            Rejoignez des milliers de créateurs et développeurs qui utilisent Ainsite Engineering
             pour obtenir des résultats exceptionnels avec l'IA.
           </p>
           <a

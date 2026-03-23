@@ -22,10 +22,12 @@ export default function DashboardPage() {
   const stats = [
     { label: "Prompts générés", value: history.length.toString(), icon: Sparkles, color: "text-violet-500" },
     { label: "Favoris", value: history.filter((h) => h.favorite).length.toString(), icon: Star, color: "text-amber-500" },
-    { label: "Ce mois", value: history.filter((h) => {
-      const thisMonth = new Date().getMonth();
-      return new Date(h.createdAt).getMonth() === thisMonth;
-    }).length.toString(), icon: TrendingUp, color: "text-green-500" },
+    {
+      label: "Ce mois", value: history.filter((h) => {
+        const thisMonth = new Date().getMonth();
+        return new Date(h.createdAt).getMonth() === thisMonth;
+      }).length.toString(), icon: TrendingUp, color: "text-green-500"
+    },
   ];
 
   const recentPrompts = history.slice(0, 5);
@@ -49,7 +51,7 @@ export default function DashboardPage() {
     <div className="container mx-auto px-4 py-8">
       <div className="mb-8">
         <h1 className="text-3xl font-bold">Dashboard</h1>
-        <p className="text-zinc-600 dark:text-zinc-400">Bienvenue sur votre tableau de bord PromptForge</p>
+        <p className="text-zinc-600 dark:text-zinc-400">Bienvenue sur votre tableau de bord Ainsite Engineering</p>
       </div>
 
       {/* Stats */}

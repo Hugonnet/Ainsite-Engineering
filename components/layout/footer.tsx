@@ -12,7 +12,7 @@ export function Footer() {
                 <Sparkles className="h-5 w-5" />
               </div>
               <span className="text-xl font-bold bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">
-                PromptForge
+                Ainsite Engineering
               </span>
             </Link>
             <p className="text-sm text-zinc-600 dark:text-zinc-400 max-w-md">
@@ -66,7 +66,7 @@ export function Footer() {
 
         <div className="mt-8 pt-8 border-t border-zinc-200 dark:border-zinc-800 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-zinc-500">
-            © {new Date().getFullYear()} PromptForge. Tous droits réservés.
+            © {new Date().getFullYear()} Ainsite Engineering. Tous droits réservés.
           </p>
           <div className="flex items-center gap-4">
             <a href="#" className="text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors">

@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "PromptForge - Générateur de Prompts IA",
+  title: "Ainsite Engineering - Générateur de Prompts IA",
   description: "Créez des prompts optimisés pour l'IA en quelques clics. L'outil indispensable pour les créateurs, développeurs et agences web.",
 };
 

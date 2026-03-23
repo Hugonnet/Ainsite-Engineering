@@ -16,7 +16,7 @@ export function Header() {
             <Sparkles className="h-5 w-5" />
           </div>
           <span className="text-xl font-bold bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">
-            PromptForge
+            Ainsite Engineering
           </span>
         </Link>
 
