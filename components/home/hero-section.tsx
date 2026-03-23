@@ -33,7 +33,7 @@ export function HeroSection() {
 
           {/* Description */}
           <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-8 max-w-2xl mx-auto">
-            PromptForge guide l'utilisateur étape par étape pour construire des prompts
+            Ainsite-Engineering guide l'utilisateur étape par étape pour construire des prompts
             ultra performants. Éliminez la complexité et obtenez des résultats exceptionnels.
           </p>
 
