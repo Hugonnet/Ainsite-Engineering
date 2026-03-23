@@ -19,7 +19,7 @@ const formatTemplates: Record<string, string> = {
 // Construction des blocs de prompt
 export function buildPromptBlocks(
   type: PromptType,
-  data: Record<string, unknown>
+  data: any
 ): PromptBlock[] {
   const blocks: PromptBlock[] = [];
 
@@ -107,7 +107,7 @@ export function buildPromptBlocks(
   return blocks.sort((a, b) => a.order - b.order);
 }
 
-function buildContextContent(type: PromptType, data: Record<string, unknown>): string {
+function buildContextContent(type: PromptType, data: any): string {
   const parts: string[] = [];
 
   if (data.targetAudience) {
@@ -155,7 +155,7 @@ function buildContextContent(type: PromptType, data: Record<string, unknown>): s
   return parts.join('\n');
 }
 
-function buildObjectiveContent(type: PromptType, data: Record<string, unknown>): string {
+function buildObjectiveContent(type: PromptType, data: any): string {
   if (data.objective) {
     return data.objective as string;
   }
@@ -178,7 +178,7 @@ function buildObjectiveContent(type: PromptType, data: Record<string, unknown>):
   }
 }
 
-function buildConstraintsContent(type: PromptType, data: Record<string, unknown>): string {
+function buildConstraintsContent(type: PromptType, data: any): string {
   const parts: string[] = [];
 
   if (data.constraints) {
@@ -227,7 +227,7 @@ function buildConstraintsContent(type: PromptType, data: Record<string, unknown>
   return parts.join('\n');
 }
 
-function buildFormatContent(type: PromptType, data: Record<string, unknown>): string {
+function buildFormatContent(type: PromptType, data: any): string {
   if (data.format) {
     return data.format as string;
   }
@@ -257,7 +257,7 @@ function buildFormatContent(type: PromptType, data: Record<string, unknown>): st
   }
 }
 
-function buildToneContent(type: PromptType, data: Record<string, unknown>): string {
+function buildToneContent(type: PromptType, data: any): string {
   if (data.tone) {
     return `Ton : ${data.tone}`;
   }
@@ -275,7 +275,7 @@ function buildToneContent(type: PromptType, data: Record<string, unknown>): stri
   }
 }
 
-function buildExamplesContent(type: PromptType, data: Record<string, unknown>): string {
+function buildExamplesContent(type: PromptType, data: any): string {
   if (data.examples) {
     return data.examples as string;
   }
@@ -319,7 +319,7 @@ function getToneLabel(tone: string): string {
 // Génération du prompt final
 export function generatePrompt(
   type: PromptType,
-  data: Record<string, unknown>
+  data: any
 ): GeneratedPrompt {
   const blocks = buildPromptBlocks(type, data);
   const rawContent = blocks
@@ -386,7 +386,7 @@ export function calculatePromptQuality(blocks: PromptBlock[]): PromptQualityScor
 function generateSuggestions(
   blocks: PromptBlock[],
   type: PromptType,
-  data: Record<string, unknown>
+  data: any
 ): string[] {
   const suggestions: string[] = [];
 

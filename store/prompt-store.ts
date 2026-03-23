@@ -6,7 +6,7 @@ import { generateId } from '@/lib/utils';
 interface PromptStore {
   // État du wizard
   currentStep: number;
-  wizardData: Record<string, unknown>;
+  wizardData: any;
   promptType: PromptType | null;
 
   // Prompt généré
@@ -17,7 +17,7 @@ interface PromptStore {
 
   // Actions
   setPromptType: (type: PromptType) => void;
-  setWizardData: (data: Record<string, unknown>) => void;
+  setWizardData: (data: any) => void;
   updateWizardData: (key: string, value: unknown) => void;
   setCurrentStep: (step: number) => void;
   nextStep: () => void;

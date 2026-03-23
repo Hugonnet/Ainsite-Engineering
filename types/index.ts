@@ -35,7 +35,7 @@ export interface WizardField {
 export interface WizardState {
   currentStep: number;
   totalSteps: number;
-  data: Record<string, unknown>;
+  data: any;
   isComplete: boolean;
 }
 

@@ -29,7 +29,7 @@ interface Template {
   type: "text" | "image" | "video" | "webapp";
   icon: React.ReactNode;
   gradient: string;
-  data: Record<string, unknown>;
+  data: any;
   isPro?: boolean;
 }
 
