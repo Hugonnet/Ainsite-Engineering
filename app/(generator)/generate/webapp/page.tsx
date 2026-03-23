@@ -112,7 +112,7 @@ export default function WebAppGeneratorPage() {
     }));
   };
 
-  const handleStackChange = (stack: string, checked: boolean) => {
+  const handleStackChange = (stack: WebAppConfig["stack"][number], checked: boolean) => {
     setFormData((prev) => ({
       ...prev,
       stack: checked
@@ -145,11 +145,11 @@ export default function WebAppGeneratorPage() {
   const canProceed = () => {
     switch (currentStep) {
       case 0:
-        return formData.appType !== "";
+        return !!formData.appType;
       case 1:
         return formData.stack.length > 0;
       case 2:
-        return formData.style !== "";
+        return !!formData.style;
       case 3:
         return formData.features.length > 0;
       case 4:
@@ -193,15 +193,15 @@ export default function WebAppGeneratorPage() {
                 <label
                   key={stack.value}
                   className={`flex items-center gap-3 p-4 rounded-lg border cursor-pointer transition-all hover:shadow-md ${
-                    formData.stack.includes(stack.value)
+                    formData.stack.includes(stack.value as WebAppConfig["stack"][number])
                       ? "ring-2 ring-violet-500 bg-violet-50 dark:bg-violet-950/30 border-violet-500"
                       : "border-zinc-200 hover:border-zinc-300"
                   }`}
                 >
                   <input
                     type="checkbox"
-                    checked={formData.stack.includes(stack.value)}
-                    onChange={(e) => handleStackChange(stack.value, e.target.checked)}
+                    checked={formData.stack.includes(stack.value as WebAppConfig["stack"][number])}
+                    onChange={(e) => handleStackChange(stack.value as WebAppConfig["stack"][number], e.target.checked)}
                     className="h-4 w-4 text-violet-600 focus:ring-violet-500"
                   />
                   <div>

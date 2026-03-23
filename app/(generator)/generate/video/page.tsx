@@ -87,11 +87,11 @@ export default function VideoGeneratorPage() {
       case 0:
         return formData.subject.trim().length > 10;
       case 1:
-        return formData.style !== "" && formData.mood.trim().length > 3;
+        return !!formData.style && formData.mood.trim().length > 3;
       case 2:
-        return formData.audio !== "";
+        return !!formData.audio;
       case 3:
-        return formData.duration !== "";
+        return !!formData.duration;
       default:
         return true;
     }

@@ -92,11 +92,11 @@ export default function ImageGeneratorPage() {
       case 0:
         return formData.subject.trim().length > 5;
       case 1:
-        return formData.style !== "" && formData.mood.trim().length > 3;
+        return !!formData.style && formData.mood.trim().length > 3;
       case 2:
         return formData.composition.trim().length > 5;
       case 3:
-        return formData.aspectRatio !== "";
+        return !!formData.aspectRatio;
       default:
         return true;
     }

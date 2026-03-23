@@ -103,13 +103,13 @@ export default function TextGeneratorPage() {
   const canProceed = () => {
     switch (currentStep) {
       case 0:
-        return formData.contentType !== "";
+        return !!formData.contentType;
       case 1:
         return formData.subject.trim().length > 10;
       case 2:
         return formData.targetAudience.trim().length > 5;
       case 3:
-        return formData.tone !== "" && formData.length !== "";
+        return !!formData.tone && !!formData.length;
       default:
         return true;
     }
