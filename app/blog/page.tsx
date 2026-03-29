@@ -41,7 +41,7 @@ const articles = [
     author: "Thomas Bernard",
     date: "18 Mars 2026",
     readTime: "12 min",
-    image: "/Users/ainsitenet/.gemini/antigravity/brain/9e81fd33-7179-427a-ac08-b97947d3565b/prompt_article_abstract_1_1774789628326.png"
+    image: "/blog/tree-of-thoughts.png"
   },
   {
     id: 5,
@@ -51,7 +51,7 @@ const articles = [
     author: "Julie Morel",
     date: "15 Mars 2026",
     readTime: "9 min",
-    image: "/Users/ainsitenet/.gemini/antigravity/brain/9e81fd33-7179-427a-ac08-b97947d3565b/prompt_engineering_blog_hero_1774789606847.png"
+    image: "/blog/react-agents.png"
   },
   {
     id: 6,
@@ -61,7 +61,7 @@ const articles = [
     author: "Antoine Petit",
     date: "12 Mars 2026",
     readTime: "4 min",
-    image: "/Users/ainsitenet/.gemini/antigravity/brain/9e81fd33-7179-427a-ac08-b97947d3565b/prompt_article_abstract_2_1774789651006.png"
+    image: "/blog/negative-prompting.png"
   },
   {
     id: 7,
@@ -71,7 +71,7 @@ const articles = [
     author: "Sarah Gomez",
     date: "10 Mars 2026",
     readTime: "7 min",
-    image: "/Users/ainsitenet/.gemini/antigravity/brain/9e81fd33-7179-427a-ac08-b97947d3565b/prompt_article_abstract_1_1774789628326.png"
+    image: "/blog/prompt-chaining.png"
   },
   {
     id: 8,
@@ -81,7 +81,7 @@ const articles = [
     author: "Nicolas Vasseur",
     date: "08 Mars 2026",
     readTime: "6 min",
-    image: "/Users/ainsitenet/.gemini/antigravity/brain/9e81fd33-7179-427a-ac08-b97947d3565b/prompt_engineering_blog_hero_1774789606847.png"
+    image: "/blog/temperature-top-p.png"
   },
   {
     id: 9,
@@ -91,7 +91,7 @@ const articles = [
     author: "Sophie Durand",
     date: "05 Mars 2026",
     readTime: "5 min",
-    image: "/Users/ainsitenet/.gemini/antigravity/brain/9e81fd33-7179-427a-ac08-b97947d3565b/prompt_article_abstract_2_1774789651006.png"
+    image: "/blog/iteration-process.png"
   }
 ];
 
