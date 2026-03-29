@@ -43,14 +43,7 @@ export function Header() {
           </Link>
         </nav>
 
-        <div className="hidden md:flex items-center gap-3">
-          <Button variant="ghost" size="sm">
-            Se connecter
-          </Button>
-          <Button size="sm" className="bg-gradient-to-r from-blue-500 to-rose-400 hover:from-blue-600 hover:to-rose-500 text-white border-0 shadow-md">
-            Essai gratuit
-          </Button>
-        </div>
+
 
         {/* Mobile Menu Button */}
         <button
@@ -83,14 +76,7 @@ export function Header() {
             >
               Templates
             </Link>
-            <div className="flex flex-col gap-2 mt-2 pt-4 border-t border-zinc-200 dark:border-zinc-800">
-              <Button variant="ghost" size="sm" className="w-full justify-center">
-                Se connecter
-              </Button>
-              <Button size="sm" className="w-full justify-center bg-gradient-to-r from-blue-500 to-rose-400 hover:from-blue-600 hover:to-rose-500 text-white border-0 shadow-md">
-                Essai gratuit
-              </Button>
-            </div>
+
           </nav>
         </div>
       )}
