@@ -49,13 +49,13 @@ const promptTypes = [
 
 export function PromptTypeSelector() {
   return (
-    <section className="py-20 bg-white dark:bg-zinc-950">
+    <section className="py-20 bg-background dark:bg-zinc-950">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-slate-900 dark:text-zinc-100">
             Choisissez votre type de prompt
           </h2>
-          <p className="text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
+          <p className="text-slate-600 dark:text-zinc-400 max-w-2xl mx-auto">
             Sélectionnez le type de contenu que vous souhaitez créer. Notre assistant intelligent
             vous guidera à chaque étape pour obtenir un prompt parfaitement adapté.
           </p>
@@ -68,9 +68,9 @@ export function PromptTypeSelector() {
               <Link key={type.id} href={`/generate/${type.id}`}>
                 <Card
                   className={cn(
-                    "group relative overflow-hidden transition-all duration-300 cursor-pointer h-full",
-                    "hover:shadow-xl hover:shadow-violet-500/10 hover:-translate-y-1",
-                    type.featured && "ring-2 ring-violet-500/50"
+                    "group relative overflow-hidden transition-all duration-300 cursor-pointer h-full border-slate-100 dark:border-zinc-800 bg-white dark:bg-zinc-950 rounded-xl",
+                    "hover:shadow-xl hover:shadow-blue-500/5 hover:-translate-y-1",
+                    type.featured && "ring-2 ring-blue-500/20"
                   )}
                 >
                   {type.badge && (

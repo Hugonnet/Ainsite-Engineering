@@ -32,13 +32,13 @@ const features = [
 
 export function FeaturesSection() {
   return (
-    <section className="py-20 bg-zinc-50 dark:bg-zinc-900">
+    <section className="py-20 bg-slate-50 dark:bg-zinc-900 border-t border-slate-100 dark:border-zinc-800">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-slate-900 dark:text-zinc-100">
             Tout ce dont vous avez besoin
           </h2>
-          <p className="text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
+          <p className="text-slate-600 dark:text-zinc-400 max-w-2xl mx-auto">
             PromptForge combine la simplicité d'un wizard intuitif avec la puissance
             d'un moteur de génération avancé.
           </p>
@@ -50,16 +50,16 @@ export function FeaturesSection() {
             return (
               <Card
                 key={feature.title}
-                className="border-0 shadow-lg bg-white dark:bg-zinc-950"
+                className="border-0 shadow-soft hover:shadow-lg transition-all duration-300 bg-white dark:bg-zinc-950 rounded-xl"
               >
                 <CardHeader>
-                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-zinc-100 dark:bg-zinc-800 mb-3">
-                    <Icon className="h-5 w-5 text-violet-600" />
+                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-slate-50 dark:bg-zinc-900 mb-3 group-hover:bg-blue-50 transition-colors">
+                    <Icon className="h-5 w-5 text-blue-500" />
                   </div>
-                  <CardTitle className="text-lg">{feature.title}</CardTitle>
+                  <CardTitle className="text-lg text-slate-900 dark:text-zinc-100">{feature.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                  <p className="text-sm text-slate-600 dark:text-zinc-400">
                     {feature.description}
                   </p>
                 </CardContent>
