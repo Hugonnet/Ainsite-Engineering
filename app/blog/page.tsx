@@ -1,99 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Clock, User, Calendar } from "lucide-react";
-
-const articles = [
-  {
-    id: 1,
-    title: "Le Few-Shot Prompting : De la théorie à la pratique",
-    excerpt: "Pourquoi donner quelques exemples à l'IA change radicalement la qualité de ses réponses complexes.",
-    category: "Techniques de Base",
-    author: "Sophie Durand",
-    date: "24 Mars 2026",
-    readTime: "6 min",
-    image: "/blog/abstract-1.png"
-  },
-  {
-    id: 2,
-    title: "Think Step by Step : Maîtriser le Chain of Thought (CoT)",
-    excerpt: "Comment décomposer le raisonnement de l'IA pour éviter les hallucinations dans les tâches logiques.",
-    category: "Raisonnement IA",
-    author: "Marc Leroy",
-    date: "22 Mars 2026",
-    readTime: "8 min",
-    image: "/blog/abstract-2.png"
-  },
-  {
-    id: 3,
-    title: "Optimiser votre Fenêtre de Contexte",
-    excerpt: "Astuces pour garder les informations essentielles sans dépasser les limites de jetons de votre modèle.",
-    category: "Performance",
-    author: "Léa Martin",
-    date: "20 Mars 2026",
-    readTime: "5 min",
-    image: "/blog/hero.png"
-  },
-  {
-    id: 4,
-    title: "Tree of Thoughts (ToT) : L'IA à choix multiples",
-    excerpt: "Une exploration profonde des techniques de recherche arborescente pour la résolution de problèmes.",
-    category: "Avancé",
-    author: "Thomas Bernard",
-    date: "18 Mars 2026",
-    readTime: "12 min",
-    image: "/blog/tree-of-thoughts.png"
-  },
-  {
-    id: 5,
-    title: "ReAct : Faire interagir l'IA avec le monde réel",
-    excerpt: "Combiner la planification verbale avec l'utilisation d'outils pour des agents plus autonomes.",
-    category: "Agents",
-    author: "Julie Morel",
-    date: "15 Mars 2026",
-    readTime: "9 min",
-    image: "/blog/react-agents.png"
-  },
-  {
-    id: 6,
-    title: "Le Negative Prompting en 2026",
-    excerpt: "Comment dire à l'IA ce qu'elle ne doit PAS faire pour affiner ses résultats de manière chirurgicale.",
-    category: "Précision",
-    author: "Antoine Petit",
-    date: "12 Mars 2026",
-    readTime: "4 min",
-    image: "/blog/negative-prompting.png"
-  },
-  {
-    id: 7,
-    title: "Prompt Chaining : Séquencer pour mieux régner",
-    excerpt: "Pourquoi enchaîner plusieurs petits prompts vaut mieux qu'un seul énorme prompt complexe.",
-    category: "Workflow",
-    author: "Sarah Gomez",
-    date: "10 Mars 2026",
-    readTime: "7 min",
-    image: "/blog/prompt-chaining.png"
-  },
-  {
-    id: 8,
-    title: "Température et Top-P décryptés",
-    excerpt: "Tout sur les paramètres de génération pour équilibrer créativité délirante et rigueur mathématique.",
-    category: "Mathématiques",
-    author: "Nicolas Vasseur",
-    date: "08 Mars 2026",
-    readTime: "6 min",
-    image: "/blog/temperature-top-p.png"
-  },
-  {
-    id: 9,
-    title: "L'art de l'itération infinie",
-    excerpt: "Apprendre à raffiner ses prompts en se basant sur les échecs précédents de l'IA.",
-    category: "Méthodologie",
-    author: "Sophie Durand",
-    date: "05 Mars 2026",
-    readTime: "5 min",
-    image: "/blog/iteration-process.png"
-  }
-];
+import { articles } from "@/lib/articles";
 
 export default function BlogPage() {
   return (
@@ -132,7 +40,9 @@ export default function BlogPage() {
                     src={article.image}
                     alt={article.title}
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                    priority={article.id <= 3}
                   />
                   <div className="absolute top-4 left-4">
                     <span className="px-3 py-1 text-xs font-semibold bg-white/60 dark:bg-zinc-800/60 backdrop-blur-md rounded-full text-blue-600 dark:text-blue-400 border border-white/40 dark:border-white/10">
