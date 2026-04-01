@@ -49,6 +49,12 @@ export function Header() {
           >
             Blog
           </Link>
+          <Link
+            href="/contact"
+            className="text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+          >
+            Contact
+          </Link>
         </nav>
 
         {/* Desktop Theme Toggle */}
@@ -96,6 +102,18 @@ export function Header() {
               className="text-sm font-medium text-slate-600 hover:text-slate-900 py-2"
             >
               Templates
+            </Link>
+            <Link
+              href="/blog"
+              className="text-sm font-medium text-slate-600 hover:text-slate-900 py-2"
+            >
+              Blog
+            </Link>
+            <Link
+              href="/contact"
+              className="text-sm font-medium text-slate-600 hover:text-slate-900 py-2"
+            >
+              Contact
             </Link>
             <div className="border-t border-slate-200 dark:border-zinc-800 pt-3 mt-2">
               {mounted && (
