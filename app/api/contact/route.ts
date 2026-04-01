@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
 
     // Envoi de l'email via Resend
     const { data, error } = await resend.emails.send({
-      from: 'contact@ainsite.net', // Remplacez par votre domaine vérifié sur Resend
+      from: 'onboarding@resend.dev', // Adresse vérifiée Resend
       to: 'contact@ainsite.net', // Adresse de destination
       subject: `Nouveau message de contact de ${name}`,
       html: `
