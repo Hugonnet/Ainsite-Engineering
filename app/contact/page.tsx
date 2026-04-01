@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { Code, Shield, Server } from "lucide-react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -63,9 +64,9 @@ export default function Contact() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Formulaire de contact */}
-        <Card>
+        <Card className="border-0 shadow-soft hover:shadow-lg transition-all duration-300 bg-white dark:bg-zinc-950 rounded-xl">
           <CardHeader>
-            <CardTitle>Envoyez-nous un message</CardTitle>
+            <CardTitle className="text-lg text-slate-900 dark:text-zinc-100">Envoyez-nous un message</CardTitle>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -104,7 +105,11 @@ export default function Contact() {
                   required
                 />
               </div>
-              <Button type="submit" className="w-full" disabled={isSubmitting}>
+              <Button
+                type="submit"
+                className="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-blue-500 to-rose-400 text-white px-8 py-3 text-lg font-bold hover:bg-slate-50 transition-all shadow-lg hover:shadow-xl hover:scale-[1.02] w-full"
+                disabled={isSubmitting}
+              >
                 {isSubmitting ? "Envoi en cours..." : "Envoyer"}
               </Button>
               {submitMessage && (
@@ -118,31 +123,31 @@ export default function Contact() {
 
         {/* Informations de contact */}
         <div className="space-y-6">
-          <Card>
+          <Card className="border-0 shadow-soft hover:shadow-lg transition-all duration-300 bg-white dark:bg-zinc-950 rounded-xl">
             <CardHeader>
-              <CardTitle>Notre adresse</CardTitle>
+              <CardTitle className="text-lg text-slate-900 dark:text-zinc-100">Notre adresse</CardTitle>
             </CardHeader>
             <CardContent>
-              <p>160 Rue de la Croix</p>
-              <p>01460 Béard-Géovreissiat</p>
+              <p className="text-sm text-slate-600 dark:text-zinc-400">160 Rue de la Croix</p>
+              <p className="text-sm text-slate-600 dark:text-zinc-400">01460 Béard-Géovreissiat</p>
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="border-0 shadow-soft hover:shadow-lg transition-all duration-300 bg-white dark:bg-zinc-950 rounded-xl">
             <CardHeader>
-              <CardTitle>Nous joindre</CardTitle>
+              <CardTitle className="text-lg text-slate-900 dark:text-zinc-100">Nous joindre</CardTitle>
             </CardHeader>
             <CardContent>
-              <p>Téléphone : 06.76.90.96.17</p>
+              <p className="text-sm text-slate-600 dark:text-zinc-400">Téléphone : 06.76.90.96.17</p>
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="border-0 shadow-soft hover:shadow-lg transition-all duration-300 bg-white dark:bg-zinc-950 rounded-xl">
             <CardHeader>
-              <CardTitle>Nous écrire</CardTitle>
+              <CardTitle className="text-lg text-slate-900 dark:text-zinc-100">Nous écrire</CardTitle>
             </CardHeader>
             <CardContent>
-              <p>Email : contact@ainsite.net</p>
+              <p className="text-sm text-slate-600 dark:text-zinc-400">Email : contact@ainsite.net</p>
             </CardContent>
           </Card>
         </div>
@@ -155,29 +160,44 @@ export default function Contact() {
           Nous proposons des sites e-commerce propulsés par les solutions open source Prestashop ou Woocommerce,
           ainsi que des applications mobiles et bien d'autres services.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <Card>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <Card className="border-0 shadow-soft hover:shadow-lg transition-all duration-300 bg-white dark:bg-zinc-950 rounded-xl">
             <CardHeader>
-              <CardTitle>Création de sites internet</CardTitle>
+              <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-slate-50 dark:bg-zinc-900 mb-3 group-hover:bg-blue-50 transition-colors">
+                <Code className="h-5 w-5 text-blue-500" />
+              </div>
+              <CardTitle className="text-lg text-slate-900 dark:text-zinc-100">Création de sites internet</CardTitle>
             </CardHeader>
             <CardContent>
-              <p>Nous concevons et développons des sites web de toutes natures : site vitrine, site corporate ou site-e-commerce.</p>
+              <p className="text-sm text-slate-600 dark:text-zinc-400">
+                Nous concevons et développons des sites web de toutes natures : site vitrine, site corporate ou site-e-commerce.
+              </p>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="border-0 shadow-soft hover:shadow-lg transition-all duration-300 bg-white dark:bg-zinc-950 rounded-xl">
             <CardHeader>
-              <CardTitle>Maintenance</CardTitle>
+              <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-slate-50 dark:bg-zinc-900 mb-3 group-hover:bg-blue-50 transition-colors">
+                <Shield className="h-5 w-5 text-blue-500" />
+              </div>
+              <CardTitle className="text-lg text-slate-900 dark:text-zinc-100">Maintenance</CardTitle>
             </CardHeader>
             <CardContent>
-              <p>Nous vous proposons systématiquement un contrat de maintenance global de votre site incluant les MAJ de contenus et de sécurité.</p>
+              <p className="text-sm text-slate-600 dark:text-zinc-400">
+                Nous vous proposons systématiquement un contrat de maintenance global de votre site incluant les MAJ de contenus et de sécurité.
+              </p>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="border-0 shadow-soft hover:shadow-lg transition-all duration-300 bg-white dark:bg-zinc-950 rounded-xl">
             <CardHeader>
-              <CardTitle>Hébergement</CardTitle>
+              <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-slate-50 dark:bg-zinc-900 mb-3 group-hover:bg-blue-50 transition-colors">
+                <Server className="h-5 w-5 text-blue-500" />
+              </div>
+              <CardTitle className="text-lg text-slate-900 dark:text-zinc-100">Hébergement</CardTitle>
             </CardHeader>
             <CardContent>
-              <p>Tous nos sites sont hébergés sur serveurs dédiés pour une bande passante importante et une sécurité accrue.</p>
+              <p className="text-sm text-slate-600 dark:text-zinc-400">
+                Tous nos sites sont hébergés sur serveurs dédiés pour une bande passante importante et une sécurité accrue.
+              </p>
             </CardContent>
           </Card>
         </div>
